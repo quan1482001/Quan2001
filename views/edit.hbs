@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Edit Page</title>
+    <style>
+        span{
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    {{!-- Edit form --}}
+    <div style="display: inline-block; padding: 20px 0px 0px 500px;">
+        <form action="/update" method="post">
+            <table class="table table-hover">
+                <tr>
+                    <td><input type="hidden" name="id" value="{{product._id}}"></td>
+                    <td style="font-size: 20px; font-weight:bold">Product to edit</td>
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td><input type="text" name="txtName" value="{{product.name}}" required></td>
+                </tr>
+                <tr>
+                    <td>Price</td>
+                    <td><input type="text" name="txtPrice" value="{{product.price}}" required><span>{{priceError}}</span></td>
+                </tr>
+                <tr>
+                    <td>Image Url</td>
+                    <td ><input type="text" name="imgUrl" value="{{product.imgUrl}}" required></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Update"></td>
+                </tr>
+            </table>
+        </form>
+        <div>
+            <img src="{{product.imgUrl}}" alt="" width="250px" height="160px">
+        </div>
+    </div>
+</body>
+
+</html>
